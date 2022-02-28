@@ -71,6 +71,7 @@ body {
   margin: 0;
   padding: 0;
   color: #02147A;
+  -webkit-overflow-scrolling: touch;
 }
 
 /* AUDIO */
@@ -80,18 +81,15 @@ body {
   outline: none;
   cursor: pointer;
   border: none;
-  width: 2.8vw;
-  height: 2.8vw;
-  margin: 27vw 0 0;
+  width: 2.1vw;
+  height: 2.1vw;
+  margin: 0;
+  padding: 0;
   background: url('img/play.svg') no-repeat center;
 }
 
 .audio-player #playAudio.pause {
   background: url("img/pause.svg") no-repeat center;
-}
-
-.audio-player svg:hover {
-  fill: red;
 }
 
 /* LINKS */
@@ -112,11 +110,13 @@ padding-bottom: 3.5px;
   box-shadow: 0 0 1px rgba(0, 0, 0, 0);
   position: relative;
   overflow: hidden;
+  z-index: 9999999999;
 }
+
 .hvr-underline-from-center:before {
   content: "";
   position: absolute;
-  z-index: -1;
+  z-index: 9999999999;
   left: 51%;
   right: 51%;
   bottom: 0;
@@ -177,6 +177,32 @@ padding-bottom: 3.5px;
 
 /* FLOATING_BUBBLES */
 
+.bubble_button {
+  width:34vw;
+  height: 3.95vw;
+  padding: 0 0 0.3vw;
+  margin: 10vw 0 10vw;
+  text-align: center;
+  background-image: url(img/button_h.svg);
+  background-repeat: no-repeat;
+  font-family: vr_brrr;
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 0;
+  font-size: 1.6vw;
+  color: #02147A;
+  cursor: pointer;
+  transition: .3s ease;
+}
+
+/* LEFT_BUBBLE */
+
+.bubble_left {
+  left: 3vw;
+  font-size: 1.45vw;
+  z-index: 999999;
+}
+
 .bubble_left {
   position: fixed;
   top: 3vw;
@@ -185,7 +211,7 @@ padding-bottom: 3.5px;
   padding: 0;
   margin: 0;
   text-align: center;
-  background-image: url(img/floater_bg.svg);
+  background-image: url(img/button_v.svg);
   background-repeat: no-repeat;
   font-family: vr_brrr;
   text-transform: uppercase;
@@ -196,6 +222,7 @@ padding-bottom: 3.5px;
 .bubble_left {
   left: 3vw;
   font-size: 1.45vw;
+  z-index: 999999;
 }
 
 .bubble_left h3 {
@@ -217,23 +244,47 @@ padding-bottom: 3.5px;
   width: 3.95vw;
   padding: 0;
   margin: 0;
-  background-image: url(img/floater_bg.svg);
+  background-image: url(img/button_v.svg);
   background-repeat: no-repeat;
   text-align: center;
+  z-index: 999999;
+}
+
+/* NFTECHLORD_BUBBLES */
+
+.bubble_pic_small, .bubble_pic_medium, .bubble_pic_large {
+  position: absolute;
+}
+
+.bubble_pic_small, .bubble_pic_small img {
+  border-radius: 100%;
+  width: 10vw;
+  height: 10vw;
+}
+
+.bubble_pic_medium, .bubble_pic_medium img {
+  border-radius: 100%;
+  width: 20vw;
+  height: 20vw;
+}
+
+.bubble_pic_large, .bubble_pic_large img {
+  border-radius: 100%;
+  width: 30vw;
+  height: 30vw;
 }
 
 /*----------------------------------------------------------*/
 
 /* SOCIAL_ICONS */
 
-.os, .ig, .tw, .di {
+.os, .tw, .di {
     width: 2.1vw;
     height: 2.1vw;
     margin: 2.1vw auto;
 }
 
 .os {background-image: url('img/social_opensea.svg'); background-repeat: no-repeat;}
-.ig {background-image: url('img/social_instagram.svg'); background-repeat: no-repeat;}
 .tw {background-image: url('img/social_twitter.svg'); background-repeat: no-repeat;}
 .di {background-image: url('img/social_discord.svg'); background-repeat: no-repeat;}
 
@@ -284,7 +335,7 @@ padding-bottom: 3.5px;
 /* PANELS */
 
 .panel {
-  min-height: 50vh;
+  min-height: 45vh;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -309,10 +360,18 @@ padding-bottom: 3.5px;
   text-align: center;
 }
 
+.loop img {
+  border-radius: 100%;
+}
+
 #slide {
-  height: 40vw;
+  height: 35vw;
   margin: 0 auto;
-  padding-top: 1.5vw;
+  padding:0;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
 }
 
 .title {
@@ -325,35 +384,25 @@ padding-bottom: 3.5px;
   border: 1px solid red;
 }
 
-/*.transition_frame {
-  text-align: center;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  margin:0 auto;
-  padding: 0;
-  height: 30vh;
-  width: 70vw;
-  background-image: url(img/frame.svg);
-  border: 1px solid red;
-}
-
 .transition {
+  position: absolute;
+  top: 340vw;
+  right: -4vw;
   text-align: center;
   display: flex;
   justify-content: space-around;
   align-items: center;
   margin:0 auto;
   padding: 0;
-  height: 29vh;
-  width: 60vw;
-  background-image: url(img/big.png);
+  height: 25vw;
+  width: 25vw;
+  background-image: url(img/collage.jpg);
   background-attachment: fixed;
   background-position: center;
   background-repeat: repeat;
-  background-size: 12% auto;
-  border-radius: 100px;
-}*/
+  background-size: 50% auto;
+  border-radius: 100%;
+}
 
 /* ABOUT_PANEL */
 
@@ -386,8 +435,6 @@ padding-bottom: 3.5px;
   .indent {
   text-indent: 6vw;
 }
-
-
 
 .content i {
   display: none;
@@ -427,8 +474,7 @@ padding-bottom: 3.5px;
 }
 
 .content_container_end {
-  width: 55vw;
-  margin: 0 0 15vw;
+  margin: 0;
   text-align: center;
 }
 
@@ -436,37 +482,23 @@ padding-bottom: 3.5px;
   font-size: 5vw;
 }
 
-.content_container_end p {
-  padding: 0;
-  margin: 5vw 0 0;
-  font-size: 3vw;
-}
-
 /*----------------------------------------------------------*/
 
 /* TICKER */
 
 .cool {
-  color:#ffe8c0;
+  color:#ff9cf0;
   animation: color-change 3s infinite;
 }
 
 
 @keyframes color-change {
     0% {
-        color: #ffe8c0;
-    }
-
-    30% {
         color: #ff9cf0;
     }
 
-    60% {
+    50% {
         color: #bbffc5;
-    }
-
-    90% {
-        color: #ffe8c0;
     }
 }
 
@@ -479,8 +511,8 @@ padding-bottom: 3.5px;
     -webkit-animation-direction: alternate;
     animation-direction: alternate;
     background-color: #ffe8c0;
+  z-index: 9999999999999;
 }
-
 
 
 @keyframes bgcolor {
@@ -504,29 +536,23 @@ padding-bottom: 3.5px;
 .marquee {
   width: 30%;
   white-space: nowrap;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 1.2vw 0;
   cursor: pointer;
+  z-index: 9999999999999;
 }
 
 .marquee-text {
   display: inline-block;
   width: 100%;
   font-family: vr_brrr;
-  font-size: 1.2vw;
+  font-size: 1.5vw;
   color: #02147A;
   animation: scroll 20s linear infinite;
   line-height: 2vw;
   text-decoration: none;
   text-transform: uppercase;
+  z-index: 9999999999999;
 }
-
-/*.marquee:hover {background-color: #02147A;}
-.marquee:hover .marquee-text {color: #c09cff;}
-
-.marquee:hover .marquee-text:after {background: url("img/click_here_w.svg") no-repeat;}*/
-
-
 
 @keyframes scroll {
   100% {
@@ -540,23 +566,9 @@ padding-bottom: 3.5px;
   }
 }
 
-
 .marquee-text:before {
-  content: "Dropping Spring 2022";
+  content: "Coming Soon";
   margin: 0;
 }
-
-/*
-.marquee-text:after{
-  content: "";
-  display: block;
-  background: url("img/click_here.svg") no-repeat;
-  width: 24vw;
-  height: 3.75vw;
-  float: left;
-}
-
-*/
-
 
 }
